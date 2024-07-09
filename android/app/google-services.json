@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "795391532866",
+    "firebase_url": "https://database-e2a0d-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "database-e2a0d",
+    "storage_bucket": "database-e2a0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:795391532866:android:af93c76f5dce6e7b0d32db",
+        "android_client_info": {
+          "package_name": "com.example.restaurant_management"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCLPws0JBRw5mRUFqVtbfJ0CgINJJm1mlE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
