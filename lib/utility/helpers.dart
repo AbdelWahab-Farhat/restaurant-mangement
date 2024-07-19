@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:restaurant_management/core/widgets/buttons.dart';
 import 'package:restaurant_management/models/order/order.dart';
-import 'package:restaurant_management/models/order/orderItem.dart';
 import 'package:restaurant_management/utility/size_config.dart';
 
-import '../models/menu/menu.dart';
 
 Color orderStateColor(OrderStatus status) {
   switch (status) {
@@ -20,85 +18,19 @@ Color orderStateColor(OrderStatus status) {
 }
 
 
-double totalItemsPrice(List<OrderItem> items) {
-  double tp = 0;
-  for (var item in items) {
-    tp+=item.totalItemPrice;
-  }
-  return tp;
-}
 
-String formatDate(DateTime datetime) {
-  return '${datetime.year}-${datetime.month}-${datetime.day}';
-}
-
-
-// Check if name is Right
-String? validateName(String? value) {
-  String pattern = r'(^[a-zA-Z ]*$)';
-  RegExp regExp = RegExp(pattern);
-  if (value?.isEmpty ?? true) {
-    return "Name is required";
-  } else if (!regExp.hasMatch(value ?? '')) {
-    return "Name must be a-z and A-Z";
-  }
-  return null;
-}
-String? validateUserName(String? value) {
-  print("$value <-------------------value");
-  if (value?.isEmpty ?? true) {
-    return "Username is required";
-  } else if (value!.length <= 2) {
-    return "Username must be more than 3 characters";
-  }
-  return null;
-}
-
-
-// Check if Mobile is Right
-String? validateMobile(String? value) {
-  String pattern = r'(^\+?[0-9]*$)';
-  RegExp regExp = RegExp(pattern);
-  if (value?.isEmpty ?? true) {
-    return "Mobile phone number is required";
-  } else if (!regExp.hasMatch(value ?? '')) {
-    return "Mobile phone number must contain only digits";
-  }
-  return null;
-}
-
-// Check if Password is Right
-String? validatePassword(String? value) {
-  if ((value?.length ?? 0) < 6) {
-    return 'Password must be more than 5 characters';
-  } else {
+String? formatDate(DateTime? datetime) {
+  if (datetime == null) {
     return null;
   }
-}
-// Check if confirm Password is Right
-String? validateConfirmPassword(String? password, String? confirmPassword) {
-  if (password != confirmPassword) {
-    return 'Password doesn\'t match';
-  } else if (confirmPassword?.isEmpty ?? true) {
-    return 'Confirm password is required';
-  } else {
-    return null;
-  }
+  return '${datetime.year}/${datetime.month}/${datetime.day}';
 }
 
-String? validateEmail(String? value) {
-  String pattern =
-      r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-  RegExp regex = RegExp(pattern);
-  if (!regex.hasMatch(value ?? '')) {
-    return 'Enter Valid Email';
-  } else {
-    return null;
-  }
-}
+
+
 
 //helper method to show alert dialog
-showAlertDialog(BuildContext context, String title, String content , void Function() onPressOk) {
+showAlertDialog(BuildContext context, String title, String content , void Function() onPressOk,Widget? widgetContent) {
   // set up the AlertDialog
   Widget okButton = CustomOutLinedButton(
       width: 80,
@@ -113,7 +45,7 @@ showAlertDialog(BuildContext context, String title, String content , void Functi
       onTap: () => Navigator.pop(context), text: 'cancel');
   AlertDialog alert = AlertDialog(
     title: Text(title),
-    content: Text(content),
+    content: widgetContent ?? Text(content,style: const TextStyle(fontSize: 18),),
     actions: [
       Row(
         mainAxisAlignment: MainAxisAlignment.center,
@@ -138,12 +70,11 @@ showAlertDialog(BuildContext context, String title, String content , void Functi
 
  // snackbar
 ScaffoldFeatureController<SnackBar, SnackBarClosedReason> snackBarShowing(BuildContext context , text) {
-  return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
+  return ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text),duration: const Duration(milliseconds: 700),));
 }
 
 pushReplacement(BuildContext context, Widget destination) {
-  Navigator.of(context)
-      .pushReplacement(MaterialPageRoute(builder: (context) => destination));
+  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context) => destination));
 }
 
 

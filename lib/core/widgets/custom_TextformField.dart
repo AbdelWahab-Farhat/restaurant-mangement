@@ -7,12 +7,13 @@ class CustomTextFormField extends StatelessWidget {
   final String labelText;
   final IconData icon;
   final bool? isPassword;
+  final bool? isNum;
   final String? hintText;
   final TextEditingController? controller;
   final void Function(String?)? onSaved;
   final String? Function(String?)? validator;
 
-   const CustomTextFormField({super.key, this.onSaved, this.validator, required this.labelText, required this.icon,  this.isPassword, this.hintText, this.controller});
+   const CustomTextFormField({super.key, this.onSaved, this.validator, required this.labelText, required this.icon,  this.isPassword, this.hintText, this.controller, this.isNum});
 
   @override
   Widget build(BuildContext context) {
@@ -22,6 +23,7 @@ class CustomTextFormField extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         onSaved: onSaved,
+        keyboardType: isNum != null?TextInputType.number:null,
         obscureText: isPassword ?? false,
         validator: validator,
         decoration: InputDecoration(

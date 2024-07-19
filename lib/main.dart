@@ -1,19 +1,35 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/Features/Auth/login/login_screen.dart';
-import 'package:restaurant_management/Features/Profile/profile_cubit.dart';
-import 'package:restaurant_management/Features/Profile/side_profile_screens/order_history/order_history_cubit.dart';
-import 'package:restaurant_management/Features/auth/signup/signup_cubit.dart';
-import 'package:restaurant_management/Features/auth/login/login_cubit.dart';
-import 'package:firebase_auth/firebase_auth.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:restaurant_management/Features/home/menus/menu_cubit.dart';
-import 'package:restaurant_management/Features/root/root_client.dart';
+import 'package:restaurant_management/features/Reservation/data/repo/reservation_repo_impl.dart';
+import 'package:restaurant_management/features/Reservation/presentation/viewModel/reservation_cubit/reservation_cubit.dart';
 import 'package:restaurant_management/services/FirebaseServices/fireStore_service.dart';
 import 'package:restaurant_management/utility/size_config.dart';
-import 'Blocs/order_bloc/order_bloc.dart';
-import 'Blocs/reservation_bloc/reservation_bloc.dart';
+import 'package:firebase_auth/firebase_auth.dart' as auth;
+
+import 'Features/menu/presentation/viewModel/price_cubit/price_cubit.dart';
+import 'Features/root/presentation/views/root.dart';
+import 'core/widgets/custom_loading_widget.dart';
+import 'features/auth/presentation/views/login_view.dart';
+import 'features_admin/admin_home/presentation/views/home_admin_view.dart';
+import 'models/user/user.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
+
+import '../../Features/Profile/profile_cubit.dart';
+import '../../Features/Profile/side_profile_screens/order_history/order_history_cubit.dart';
+import '../../features/Order/data/repo/order_repo_impl.dart';
+import '../../features/Order/presentation/viewModel/order_cubit.dart';
+import '../../features/auth/data/repo/auth_repo_impl.dart';
+import '../../features/auth/presentation/viewModel/login_cubit/login_cubit.dart';
+import '../../features/auth/presentation/viewModel/sign_up_cubit/signup_cubit.dart';
+import '../../features/menu/data/repo/menu_repo_impl.dart';
+import '../../features/menu/presentation/viewModel/menu_cubit/menu_cubit.dart';
+import '../../features_admin/admin_menu/add_menu_item/add_menu_item_cubit.dart';
+import '../../features_admin/admin_menu/remove_menu_item/remove_menu_item_cubit.dart';
+import '../../main.dart';
+
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -26,30 +42,98 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return MultiBlocProvider(
+      providers: [
+        BlocProvider<OrderCubit>(
+          create: (context) =>
+              OrderCubit(OrderRepoImpl(
+                store: FirebaseFirestore.instance,
+                auth: FirebaseAuth.instance,
+              )),
+        ),
+        BlocProvider<RemoveMenuItemCubit>(
+          create: (context) => RemoveMenuItemCubit(),
+        ),
+        BlocProvider<AddMenuItemCubit>(
+          create: (context) => AddMenuItemCubit(),
+        ),
+        BlocProvider<OrderHistoryCubit>(
+          create: (context) => OrderHistoryCubit(),
+        ),
+        BlocProvider<MenuCubit>(
+          create: (context) =>
+              MenuCubit(
+                MenuRepoImpl(store: FirebaseFirestore.instance),
+              ),
+        ),
+        BlocProvider<LoginCubit>(
+          create: (context) =>
+              LoginCubit(AuthRepoImpl(
+                auth: FirebaseAuth.instance,
+                store: FirebaseFirestore.instance,
+              )),
+        ),
+        BlocProvider<SignupCubit>(
+          create: (context) =>
+              SignupCubit(AuthRepoImpl(
+                auth: FirebaseAuth.instance,
+                store: FirebaseFirestore.instance,
+              )),
+        ),
+        BlocProvider<ProfileCubit>(
+          create: (context) => ProfileCubit(),
+        ),
+        BlocProvider<PriceCubit>(
+          create: (context) => PriceCubit(),
+        ),
+      ],
+      child: const App(),
+    );
+  }
+}
+
+class App extends StatelessWidget {
+  const App({super.key});
+
+  @override
+  Widget build(BuildContext context) {
     SizeConfig().initSizeConfig(context);
     return MultiBlocProvider(
       providers: [
-        BlocProvider(create: (context) => OrderHistoryCubit(),),
-        BlocProvider(create: (context) => ReservationBloc(),),
-        BlocProvider(create: (context) => OrderBloc(),),
-        BlocProvider(create: (context) => MenuCubit(FirebaseService()),),
-        BlocProvider(create: (context) => LoginCubit(firebaseAuth: FirebaseAuth.instance),),
-        BlocProvider(create: (context) => SignupCubit(FirebaseFirestore.instance,FirebaseAuth.instance,),),
-        BlocProvider(create: (context) => ProfileCubit(),)
+        BlocProvider(
+          create: (context) => ReservationCubit(),
+        ),
+        BlocProvider<ProfileCubit>(
+          create: (context) => ProfileCubit(),
+        ),
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
-        home: StreamBuilder(
-          stream: FirebaseAuth.instance.authStateChanges(),
+        home: StreamBuilder<auth.User?>(
+          stream: auth.FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
-            if (snapshot.hasData) {
-              return Root();
-            }
-            else if (!snapshot.hasData) {
-              return const LoginScreen();
-            }
-            else {
-              return  LoginScreen();
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CustomLoadingWidget();
+            } else if (snapshot.hasData) {
+              return FutureBuilder<Role>(
+                future: FirebaseService().checkUserRole(snapshot.data!.uid),
+                builder: (context, roleSnapshot) {
+                  if (roleSnapshot.connectionState == ConnectionState.waiting) {
+                    return const Scaffold(body: CustomLoadingWidget());
+                  } else if (roleSnapshot.hasData) {
+                    if (roleSnapshot.data == Role.admin) {
+                      return const HomeAdminView();
+                    }
+                    else {
+                      return const Root();
+                    }
+                  } else {
+                    return const LoginView();
+                  }
+                },
+              );
+            } else {
+              return const LoginView();
             }
           },
         ),

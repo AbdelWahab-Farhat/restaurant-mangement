@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../utility/constents.dart';
 import '../../utility/size_config.dart';
-import '../../utility/styleing.dart';
+import '../../utility/app_style.dart';
 
 
 class CustomFilledButton extends StatelessWidget {
@@ -25,7 +25,7 @@ class CustomFilledButton extends StatelessWidget {
           borderRadius: BorderRadius.all(Radius.circular(20)),
         ),
 
-        child: Center(child: Text(text,style: WidgetStyle.buttonTextStyle(),textAlign: TextAlign.center,)),
+        child: Center(child: Text(text,style: AppStyle.buttonTextStyle(),textAlign: TextAlign.center,)),
       ),
     );
   }
@@ -84,8 +84,8 @@ class CustomFilledIconButton extends StatelessWidget {
           child: Row(
             children: [
               Icon(icon,color: Colors.white,weight: 5,),
-              Spacer(),
-              Center(child: Text(text,style: WidgetStyle.buttonTextStyle(),)),
+              const Spacer(),
+              Center(child: Text(text,style: AppStyle.buttonTextStyle(),)),
             ],
           ),
         ),

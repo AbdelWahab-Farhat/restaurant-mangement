@@ -8,6 +8,7 @@ import 'package:restaurant_management/models/order/orderItem.dart';
 import 'package:restaurant_management/models/user/admin.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import '../../models/item.dart';
 import '../../models/order/order.dart' as or;
 import '../../models/reservation.dart';
 import '../../models/user/customer.dart' as cust;
@@ -51,7 +52,7 @@ class FirebaseService {
 
         // If no cached data, fetch from Firestore server
         final documentSnapshot =
-            await store.collection('users').doc(authUser.uid).get();
+        await store.collection('users').doc(authUser.uid).get();
         final data = documentSnapshot.data();
         if (data == null) {
           return null;
@@ -121,7 +122,7 @@ class FirebaseService {
     try {
       // Check if the item already exists
       var itemSnapshot =
-          await store.collection('orderItems').doc(orderItem.itemID).get();
+      await store.collection('orderItems').doc(orderItem.itemID).get();
 
       if (itemSnapshot.exists) {
         // Item exists, update the quantity
@@ -194,6 +195,7 @@ class FirebaseService {
       }
 
 
+
       // Update 'users' collection with the orders for current user
       await store.collection('users').doc(frAuth.currentUser!.uid).update({
         "orders": orders.map((order) => order.toJson()).toList(),
@@ -208,18 +210,19 @@ class FirebaseService {
     try {
       account.User? user = await getUser();
       await store.collection('orders').doc(order.orderID).set(order.toJson());
-        for (var item in order.orderItems) {
-          await store.collection('orderItems').doc(item.itemID).delete();
+      for (var item in order.orderItems) {
+        await store.collection('orderItems').doc(item.itemID).delete();
+      }
+      if (user is cust.Customer) {
+        cust.Customer customer = user;
+        await saveCustomerOrders(customer);
+        await saveReservations(rev);
+        bool result = await addReservation(rev);
+        if (!result) {
+          return false;
         }
-        if (user is cust.Customer) {
-          cust.Customer customer = user;
-          await saveCustomerOrders(customer);
-          bool result = await addReservation(rev);
-          if (!result) {
-            true;
-          }
-        }
-        return true;
+      }
+      return true;
     } catch (e) {
       print('Error adding order: $e');
       return false;
@@ -230,7 +233,7 @@ class FirebaseService {
   FutureOr<bool> addReservation(Reservation reservation) async {
     try {
       await store
-          .collection('reservation')
+          .collection('reservations')
           .doc(reservation.reservationID)
           .set(reservation.toJson());
       return true;
@@ -274,5 +277,82 @@ class FirebaseService {
       return null;
     }
   }
+  Future<account.Role> checkUserRole(String id) async {
+    final doc = await store.collection('users').doc(id).get();
+    account.User? user = account.User.fromJson(doc.data()!);
+    return user.role;
+  }
+  Future<bool> addingMenuItem(Item item, String menuName) async {
+    try {
+      final querySnapshot = await store.collection('menus').where(
+          'menuName', isEqualTo: menuName).get();
 
+      if (querySnapshot.docs.isNotEmpty) {
+        final doc = querySnapshot.docs.first;
+        Menu menu = Menu.fromJson(doc.data());
+        menu.menuItems ??= [];
+        menu.menuItems!.add(item);
+
+        await store.collection('menus').doc(menu.menuID).update(
+            {'menuItems': menu.menuItems!.map((e) => e.toJson(),)});
+        return true;
+      }
+    } on FirebaseException catch (e) {
+      print('Error: ${e.message}');
+      return false;
+    }
+    return false;
+  }
+  Future<bool> removeMenuItem(Item item) async {
+    try {
+      final querySnapshot = await store.collection('menus').get();
+
+      for (var doc in querySnapshot.docs) {
+        Menu menu = Menu.fromJson(doc.data());
+        menu.menuItems ??= [];
+        menu.menuItems!.removeWhere((menuItem) {
+          return menuItem.itemID == item.itemID;
+        });
+        await store.collection('menus').doc(menu.menuID).update(
+            {'items': menu.menuItems!.map((e) => e.toJson()).toList()});
+      }
+      return true;
+    } on FirebaseException catch (e) {
+      print('errrrrror $e');
+      return false;
+    }
+
+  }
+
+
+  Future<List<Item>?> fetchItems() async {
+    try {
+      final query = await store.collection('menus').get();
+      List<Item> items = [];
+      for (var doc in query.docs) {
+        Menu menu = Menu.fromJson(doc.data());
+        for (var item in menu.menuItems!) {
+          items.add(item);
+        }
+      }
+      return items;
+    }on FirebaseException catch(_){
+      return null;
+    }
+  }
+
+  Future<void> saveReservations(Reservation reservation) async {
+      final data  = await store.collection('users').doc(frAuth.currentUser!.uid).get();
+      if (data.data()!['role'] == 'customer') {
+        cust.Customer customer = cust.Customer.fromJson(data.data()!);
+        customer.reservations ??= [];
+        if (customer.reservations != null) {
+          customer.reservations!.add(reservation);
+        }
+        await store.collection('users').doc(customer.userID).update({
+          'reservations':customer.reservations!.map((e) => e.toJson(),).toList()
+          }
+        );
+        }
+      }
 }
