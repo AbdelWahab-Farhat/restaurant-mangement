@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/models/addon.dart';
 
+import '../../../../../models/addon.dart';
 import '../../../../../utility/constents.dart';
 
 class ShowAddons extends StatelessWidget {

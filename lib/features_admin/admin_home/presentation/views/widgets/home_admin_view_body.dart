@@ -1,13 +1,14 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/features_admin/ReservationsStatus/presentation/views/all_Reservations_view.dart';
-import 'package:restaurant_management/features_admin/orderStatus/presentation/views/order_status_view.dart';
-import 'package:restaurant_management/features_admin/staticInfo/prestation/views/static_info_view.dart';
+
 
 import '../../../../../utility/size_config.dart';
 import '../../../../admin_menu/add_menu_item/add_menu_item_screen.dart';
 import '../../../../admin_menu/remove_menu_item/remove_menu_item_screen.dart';
 import '../../../../employee/presentation/views/add_employee_view.dart';
+import '../../../../orderStatus/presentation/views/order_status_view.dart';
+import '../../../../reservationsStatus/presentation/views/all_Reservations_view.dart';
+import '../../../../staticInfo/prestation/views/static_info_view.dart';
 import 'home_admin_box.dart';
 
 class HomeAdminViewBody extends StatelessWidget {

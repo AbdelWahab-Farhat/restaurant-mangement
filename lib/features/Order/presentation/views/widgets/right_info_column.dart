@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/utility/functions/price_functions.dart';
 
 import '../../../../../models/order/orderItem.dart';
 import '../../../../../utility/constents.dart';
+import '../../../../../utility/functions/price_functions.dart';
 import '../../../../../utility/size_config.dart';
 
 class RightInfoColumn extends StatelessWidget {

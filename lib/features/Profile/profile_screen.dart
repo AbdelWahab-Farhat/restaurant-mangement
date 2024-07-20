@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:restaurant_management/Features/Profile/profile_cubit.dart';
-import 'package:restaurant_management/Features/Profile/side_profile_screens/edit_profile_screen.dart';
-import 'package:restaurant_management/Features/Profile/side_profile_screens/order_history/order_History_screen.dart';
-import 'package:restaurant_management/Features/Profile/side_profile_screens/review_screen.dart';
-import 'package:restaurant_management/Features/Profile/side_profile_screens/setting_screen.dart';
-import 'package:restaurant_management/Features/Profile/widgets/profile_menu_widget.dart';
-import 'package:restaurant_management/core/widgets/custom_appbar.dart';
-import 'package:restaurant_management/core/widgets/custom_loading_widget.dart';
-import 'package:restaurant_management/utility/constents.dart';
-import 'package:restaurant_management/utility/size_config.dart';
+
+import '../../core/widgets/custom_appbar.dart';
+import '../../core/widgets/custom_loading_widget.dart';
+import '../../utility/constents.dart';
+import '../../utility/size_config.dart';
+import 'profile_cubit.dart';
+import 'side_profile_screens/edit_profile_screen.dart';
+import 'side_profile_screens/order_history/order_History_screen.dart';
+import 'side_profile_screens/review_screen.dart';
+import 'side_profile_screens/setting_screen.dart';
+import 'widgets/profile_menu_widget.dart';
 
 class CustomerProfileScreen extends StatefulWidget {
   const CustomerProfileScreen({super.key});

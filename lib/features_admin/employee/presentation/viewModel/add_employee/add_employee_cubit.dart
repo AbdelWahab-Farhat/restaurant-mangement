@@ -2,7 +2,6 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:restaurant_management/utility/errors/failure.dart';
 
 import '../../../../../models/employee.dart';
 import '../../../data/repo/employee_repo.dart';

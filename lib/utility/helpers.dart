@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/core/widgets/buttons.dart';
-import 'package:restaurant_management/models/order/order.dart';
-import 'package:restaurant_management/utility/size_config.dart';
+
+import '../core/widgets/buttons.dart';
+import '../models/order/order.dart';
+import 'size_config.dart';
 
 
 Color orderStateColor(OrderStatus status) {

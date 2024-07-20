@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/core/widgets/custom_appbar.dart';
-import 'package:restaurant_management/features_admin/admin_menu/remove_menu_item/remove_menu_item_cubit.dart';
 import 'package:searchable_listview/searchable_listview.dart';
 
+import '../../../core/widgets/custom_appbar.dart';
 import '../../../models/item.dart';
 import '../../../utility/helpers.dart';
+import 'remove_menu_item_cubit.dart';
 
 class SearchScreen extends StatelessWidget {
   final List<Item> items;

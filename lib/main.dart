@@ -1,26 +1,18 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/features/Reservation/data/repo/reservation_repo_impl.dart';
-import 'package:restaurant_management/features/Reservation/presentation/viewModel/reservation_cubit/reservation_cubit.dart';
-import 'package:restaurant_management/services/FirebaseServices/fireStore_service.dart';
-import 'package:restaurant_management/utility/size_config.dart';
 import 'package:firebase_auth/firebase_auth.dart' as auth;
-
 import 'Features/menu/presentation/viewModel/price_cubit/price_cubit.dart';
 import 'Features/root/presentation/views/root.dart';
 import 'core/widgets/custom_loading_widget.dart';
+import 'features/Reservation/presentation/viewModel/reservation_cubit/reservation_cubit.dart';
 import 'features/auth/presentation/views/login_view.dart';
 import 'features_admin/admin_home/presentation/views/home_admin_view.dart';
 import 'models/user/user.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-
-
 import '../../Features/Profile/profile_cubit.dart';
 import '../../Features/Profile/side_profile_screens/order_history/order_history_cubit.dart';
-import '../../features/Order/data/repo/order_repo_impl.dart';
-import '../../features/Order/presentation/viewModel/order_cubit.dart';
 import '../../features/auth/data/repo/auth_repo_impl.dart';
 import '../../features/auth/presentation/viewModel/login_cubit/login_cubit.dart';
 import '../../features/auth/presentation/viewModel/sign_up_cubit/signup_cubit.dart';
@@ -28,7 +20,8 @@ import '../../features/menu/data/repo/menu_repo_impl.dart';
 import '../../features/menu/presentation/viewModel/menu_cubit/menu_cubit.dart';
 import '../../features_admin/admin_menu/add_menu_item/add_menu_item_cubit.dart';
 import '../../features_admin/admin_menu/remove_menu_item/remove_menu_item_cubit.dart';
-import '../../main.dart';
+import 'services/FirebaseServices/fireStore_service.dart';
+import 'utility/size_config.dart';
 
 
 void main() async {
@@ -44,13 +37,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiBlocProvider(
       providers: [
-        BlocProvider<OrderCubit>(
-          create: (context) =>
-              OrderCubit(OrderRepoImpl(
-                store: FirebaseFirestore.instance,
-                auth: FirebaseAuth.instance,
-              )),
-        ),
         BlocProvider<RemoveMenuItemCubit>(
           create: (context) => RemoveMenuItemCubit(),
         ),
@@ -68,10 +54,7 @@ class MyApp extends StatelessWidget {
         ),
         BlocProvider<LoginCubit>(
           create: (context) =>
-              LoginCubit(AuthRepoImpl(
-                auth: FirebaseAuth.instance,
-                store: FirebaseFirestore.instance,
-              )),
+              LoginCubit(),
         ),
         BlocProvider<SignupCubit>(
           create: (context) =>

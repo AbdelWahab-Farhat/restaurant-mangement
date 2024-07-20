@@ -1,6 +1,6 @@
-import 'package:restaurant_management/models/user/user.dart';
 import '../order/order.dart';
 import '../reservation.dart';
+import 'user.dart';
 
 class Customer extends User {
   String customerID;

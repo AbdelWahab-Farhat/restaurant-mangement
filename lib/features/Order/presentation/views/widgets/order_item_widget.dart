@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/features/Order/presentation/views/widgets/right_info_column.dart';
 import '../../../../../models/order/orderItem.dart';
 import '../../../../../utility/size_config.dart';
 import 'left_info_column.dart';
 import 'order_image_box.dart';
+import 'right_info_column.dart';
 
 class OrderItemWidget extends StatelessWidget {
   const OrderItemWidget({

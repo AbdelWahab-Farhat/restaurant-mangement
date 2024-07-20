@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/core/widgets/custom_error_widget.dart';
-import 'package:restaurant_management/core/widgets/custom_loading_widget.dart';
-import 'package:restaurant_management/features_admin/ReservationsStatus/presentation/viewModel/all_reservations_cubit.dart';
-import 'package:restaurant_management/features_admin/ReservationsStatus/presentation/views/widgets/reservations_list_view.dart';
+
+import '../../../../../core/widgets/custom_error_widget.dart';
+import '../../../../../core/widgets/custom_loading_widget.dart';
+import '../../viewModel/all_reservations_cubit.dart';
+import 'reservations_list_view.dart';
+
 
 class AllReservationsViewBody extends StatefulWidget {
   const AllReservationsViewBody({super.key});

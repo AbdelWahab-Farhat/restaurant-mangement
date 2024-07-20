@@ -1,9 +1,9 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart' as store;
 import 'package:meta/meta.dart';
-import 'package:restaurant_management/models/reservation.dart';
 
 import '../../../../models/order/order.dart';
+import '../../../../models/reservation.dart';
 import '../../../../models/user/customer.dart';
 import '../../data/repo/all_Reservations_repo.dart';
 

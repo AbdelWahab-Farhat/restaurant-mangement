@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/core/widgets/custom_error_widget.dart';
-import 'package:restaurant_management/core/widgets/custom_loading_widget.dart';
-import 'package:restaurant_management/features_admin/orderStatus/presentation/viewModel/order_status_cubit/order_status_cubit.dart';
-
 import '../../../../../models/order/order.dart';
+import '../../viewModel/order_status_cubit/order_status_cubit.dart';
 import 'custom_tab_bar_view_body.dart';
 
 class OrderStatusViewBody extends StatefulWidget {

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/core/widgets/custom_error_widget.dart';
-import 'package:restaurant_management/core/widgets/custom_loading_widget.dart';
-import 'package:restaurant_management/features/Order/presentation/viewModel/order_cubit.dart';
-import 'package:restaurant_management/features/Order/presentation/views/widgets/list_view_order_items.dart';
-import 'package:restaurant_management/features/Order/presentation/views/widgets/order_button.dart';
 import '../../../../../core/widgets/custom_appbar.dart';
+import '../../../../../core/widgets/custom_error_widget.dart';
+import '../../../../../core/widgets/custom_loading_widget.dart';
+import '../../viewModel/order_cubit.dart';
+import 'list_view_order_items.dart';
+import 'order_button.dart';
 
 class OrderViewBody extends StatefulWidget {
   const OrderViewBody({super.key});

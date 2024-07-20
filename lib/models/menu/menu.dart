@@ -1,4 +1,5 @@
-import 'package:restaurant_management/models/item.dart';
+
+import '../item.dart';
 
 class Menu {
   String menuID;

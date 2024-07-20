@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/core/widgets/buttons.dart';
-import 'package:restaurant_management/features_admin/ReservationsStatus/presentation/viewModel/all_reservations_cubit.dart';
-import 'package:restaurant_management/features_admin/admin_home/presentation/views/home_admin_view.dart';
-import 'package:restaurant_management/utility/helpers.dart';
 
+import '../../../../../core/widgets/buttons.dart';
 import '../../../../../models/order/order.dart';
 import '../../../../../models/order/orderItem.dart';
+import '../../../../../utility/helpers.dart';
+import '../../../../admin_home/presentation/views/home_admin_view.dart';
+import '../../viewModel/all_reservations_cubit.dart';
 import 'order_item_card.dart';
 import 'order_total_price_card.dart';
 

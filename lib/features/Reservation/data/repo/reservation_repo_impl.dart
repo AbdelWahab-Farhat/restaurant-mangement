@@ -1,11 +1,11 @@
 import 'package:dartz/dartz.dart' as dartz;
 import 'package:cloud_firestore/cloud_firestore.dart' as st;
 import 'package:firebase_auth/firebase_auth.dart' as frAuth;
-import 'package:restaurant_management/models/user/customer.dart' as cust;
-import 'package:restaurant_management/models/user/user.dart';
-import 'package:restaurant_management/models/reservation.dart';
-import 'package:restaurant_management/services/FirebaseServices/fireStore_service.dart';
-import 'package:restaurant_management/utility/errors/failure.dart';
+
+import '../../../../models/user/customer.dart' as cust;
+import '../../../../models/user/user.dart';
+import '../../../../utility/errors/failure.dart';
+
 
 
 class Resev {

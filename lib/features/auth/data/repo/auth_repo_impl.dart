@@ -2,12 +2,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
-import 'package:restaurant_management/features/auth/data/repo/auth_repo.dart';
-import 'package:restaurant_management/models/user/user.dart' as us;
-import 'package:restaurant_management/utility/errors/failure.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../../models/user/customer.dart';
+import '../../../../models/user/user.dart' as us;
+import '../../../../utility/errors/failure.dart';
+import 'auth_repo.dart';
 
 class AuthRepoImpl extends AuthRepo {
   final FirebaseAuth auth;

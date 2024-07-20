@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/utility/size_config.dart';
 
 import '../../../../../utility/helpers.dart';
+import '../../../../../utility/size_config.dart';
 
 class HomeAdminBox extends StatelessWidget {
   final String image;

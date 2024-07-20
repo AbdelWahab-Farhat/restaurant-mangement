@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/core/widgets/buttons.dart';
-import 'package:restaurant_management/core/widgets/custom_appbar.dart';
-import 'package:restaurant_management/features_admin/admin_menu/remove_menu_item/remove_menu_item_cubit.dart';
-import 'package:restaurant_management/features_admin/admin_menu/remove_menu_item/serach_screen.dart';
-import 'package:restaurant_management/models/item.dart';
-import 'package:restaurant_management/utility/helpers.dart';
-import 'package:restaurant_management/utility/size_config.dart';
+
+import '../../../core/widgets/buttons.dart';
+import '../../../core/widgets/custom_appbar.dart';
+import '../../../models/item.dart';
+import '../../../utility/helpers.dart';
+import '../../../utility/size_config.dart';
+import 'remove_menu_item_cubit.dart';
+import 'serach_screen.dart';
 
 class RemoveMenuItemScreen extends StatefulWidget {
   const RemoveMenuItemScreen({super.key});

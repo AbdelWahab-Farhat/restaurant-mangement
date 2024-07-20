@@ -5,9 +5,9 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_storage/firebase_storage.dart';
-import 'package:restaurant_management/models/employee.dart';
-import 'package:restaurant_management/utility/errors/failure.dart';
 
+import '../../../../models/employee.dart';
+import '../../../../utility/errors/failure.dart';
 import 'employee_repo.dart';
 
 class EmployeeRepoImpl extends EmployeeRepo {

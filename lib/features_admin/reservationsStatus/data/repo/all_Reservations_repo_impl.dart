@@ -1,9 +1,11 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:restaurant_management/features_admin/ReservationsStatus/data/repo/all_Reservations_repo.dart';
-import 'package:restaurant_management/models/user/customer.dart';
-import 'package:restaurant_management/utility/errors/failure.dart';
+
+
+import '../../../../models/user/customer.dart';
+import '../../../../utility/errors/failure.dart';
+import 'all_Reservations_repo.dart';
 
 class AllReservationsRepoImpl extends AllReservationsRepo{
   @override

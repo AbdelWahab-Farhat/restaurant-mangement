@@ -1,9 +1,10 @@
 
 import 'package:dartz/dartz.dart';
-import 'package:restaurant_management/models/menu/menu.dart';
-import 'package:restaurant_management/utility/errors/failure.dart';
 
+
+import '../../../../models/menu/menu.dart';
 import '../../../../models/order/orderItem.dart';
+import '../../../../utility/errors/failure.dart';
 
 abstract class MenuRepo {
   Future<Either<Failure,List<Menu>>> fetchMenus();

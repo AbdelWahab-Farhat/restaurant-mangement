@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/features/Order/presentation/views/widgets/show_addons.dart';
 
 import '../../../../../core/widgets/buttons.dart';
 import '../../../../../models/order/orderItem.dart';
 import '../../../../../utility/constents.dart';
 import '../../../../../utility/size_config.dart';
 import '../../viewModel/order_cubit.dart';
+import 'show_addons.dart';
 
 class LeftInfoColumn extends StatelessWidget {
   final OrderItem orderItem;

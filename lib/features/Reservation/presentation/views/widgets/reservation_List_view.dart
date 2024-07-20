@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/features/Reservation/presentation/views/widgets/reservation_Item_widget.dart';
 
 import '../../../../../models/reservation.dart';
 import '../../../../../models/user/customer.dart';
+import 'reservation_Item_widget.dart';
 
 class ReservationListView extends StatelessWidget {
   final List<Reservation> reservations;

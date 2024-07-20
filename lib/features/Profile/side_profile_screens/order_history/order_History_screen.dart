@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/core/widgets/custom_cached_Image.dart';
+import '../../../../core/widgets/custom_cached_Image.dart';
 import 'order_history_cubit.dart';
 
 class OrderHistoryScreen extends StatelessWidget {

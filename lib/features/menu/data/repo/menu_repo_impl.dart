@@ -1,10 +1,12 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
-import 'package:restaurant_management/features/menu/data/repo/menu_repo.dart';
-import 'package:restaurant_management/models/menu/menu.dart';
-import 'package:restaurant_management/models/order/orderItem.dart';
-import 'package:restaurant_management/utility/errors/failure.dart';
+
+import '../../../../models/menu/menu.dart';
+import '../../../../models/order/orderItem.dart';
+import '../../../../utility/errors/failure.dart';
+import 'menu_repo.dart';
+
 
 class MenuRepoImpl extends MenuRepo{
   final FirebaseFirestore store;

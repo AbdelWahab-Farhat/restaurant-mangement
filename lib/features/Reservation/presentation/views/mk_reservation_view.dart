@@ -1,22 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/Features/Profile/profile_cubit.dart';
-import 'package:restaurant_management/core/widgets/buttons.dart';
-import 'package:restaurant_management/core/widgets/custom_TextformField.dart';
-import 'package:restaurant_management/core/widgets/custom_appbar.dart';
-import 'package:restaurant_management/models/order/order.dart';
-import 'package:restaurant_management/models/order/orderItem.dart';
-import 'package:restaurant_management/models/reservation.dart';
-import 'package:restaurant_management/models/user/user.dart';
-import 'package:restaurant_management/utility/constents.dart';
-import 'package:restaurant_management/utility/helpers.dart';
-import 'package:restaurant_management/utility/size_config.dart';
+
 import 'package:syncfusion_flutter_datepicker/datepicker.dart';
 import 'package:day_night_time_picker/day_night_time_picker.dart';
 import 'package:uuid/uuid.dart';
+import 'package:wid_healthy_food_restaurant/core/widgets/custom_loading_widget.dart';
 
+import '../../../../core/widgets/buttons.dart';
+import '../../../../core/widgets/custom_TextformField.dart';
+import '../../../../core/widgets/custom_appbar.dart';
+import '../../../../models/order/order.dart';
+import '../../../../models/order/orderItem.dart';
+import '../../../../models/reservation.dart';
 import '../../../../models/user/customer.dart';
+import '../../../../models/user/user.dart';
 import '../../../../services/FirebaseServices/fireStore_service.dart';
+import '../../../../utility/constents.dart';
+import '../../../../utility/helpers.dart';
+import '../../../../utility/size_config.dart';
 import '../../../payment/presentation/views/loading_payment_screen.dart';
 
 
@@ -166,7 +166,7 @@ class _MkReservationViewState extends State<MkReservationView> {
                 ),
                 const SizedBox(height: 20),
                 _isRequsting
-                    ? const Center(child: CircularProgressIndicator())
+                    ? const CustomLoadingWidget()
                     : CustomFilledButton(
                     onTap: () async {
                       setState(() {

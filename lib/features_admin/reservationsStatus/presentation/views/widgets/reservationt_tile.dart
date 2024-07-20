@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/core/widgets/buttons.dart';
-import 'package:restaurant_management/features_admin/ReservationsStatus/presentation/views/reservation_order_view.dart';
-import 'package:restaurant_management/features_admin/orderStatus/presentation/views/order_status_view.dart';
 
+import '../../../../../core/widgets/buttons.dart';
 import '../../../../../models/order/order.dart';
 import '../../../../../models/reservation.dart';
-import '../../../../../utility/app_style.dart';
 import '../../../../../utility/helpers.dart';
 import '../../viewModel/all_reservations_cubit.dart';
+import '../reservation_order_view.dart';
 
 class ReservationTile extends StatelessWidget {
   final Reservation reservation;

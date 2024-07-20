@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/features/menu/presentation/views/widgets/custom_clicked_arrow.dart';
-import 'package:restaurant_management/features/menu/presentation/views/widgets/image_list_view_item_box.dart';
-import 'package:restaurant_management/utility/helpers.dart';
+
 import '../../../../../models/menu/menu.dart';
+import '../../../../../utility/helpers.dart';
 import '../../../../../utility/size_config.dart';
 import '../menu_detail_view.dart';
+import 'custom_clicked_arrow.dart';
+import 'image_list_view_item_box.dart';
 import 'menu_circle_box.dart';
 
 

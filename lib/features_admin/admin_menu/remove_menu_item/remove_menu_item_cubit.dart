@@ -1,8 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:restaurant_management/services/FirebaseServices/fireStore_service.dart';
 
 import '../../../models/item.dart';
+import '../../../services/FirebaseServices/fireStore_service.dart';
 
 part 'remove_menu_item_state.dart';
 

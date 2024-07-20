@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:restaurant_management/utility/constents.dart';
+import '../../utility/constents.dart';
+
 
 class CustomAppbar extends StatelessWidget implements PreferredSizeWidget {
   final String title;

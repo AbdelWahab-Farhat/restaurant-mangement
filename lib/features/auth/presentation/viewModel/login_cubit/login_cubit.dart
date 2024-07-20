@@ -1,16 +1,21 @@
 import 'dart:async';
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
-import 'package:restaurant_management/features/auth/data/repo/auth_repo.dart';
-import 'package:restaurant_management/models/user/user.dart' as u;
+import 'package:wid_healthy_food_restaurant/features/auth/data/repo/auth_repo_impl.dart';
+
+
+import '../../../../../models/user/user.dart' as u;
+import '../../../data/repo/auth_repo.dart';
 
 part 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  final AuthRepo authRepo;
+  final AuthRepoImpl authRepo = AuthRepoImpl(auth: FirebaseAuth.instance, store: FirebaseFirestore.instance);
   u.User? currentUser;
 
-  LoginCubit(this.authRepo) : super(const LoginInitial());
+  LoginCubit() : super(const LoginInitial());
 
   Future<void> loginWithEmailAndPassword(String email, String password) async {
     emit(const LoginLoadingState());

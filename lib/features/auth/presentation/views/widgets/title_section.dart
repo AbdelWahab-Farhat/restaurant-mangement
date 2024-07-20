@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/utility/app_assets.dart';
+import '../../../../../utility/app_assets.dart';
 import '../../../../../utility/app_style.dart';
 import '../../../../../utility/size_config.dart';
 

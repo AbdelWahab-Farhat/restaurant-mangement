@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/Features/Profile/profile_cubit.dart';
-import 'package:restaurant_management/core/widgets/buttons.dart';
-import 'package:restaurant_management/core/widgets/custom_TextformField.dart';
-import 'package:restaurant_management/core/widgets/custom_appbar.dart';
-import 'package:restaurant_management/models/user/user.dart';
-import 'package:restaurant_management/utility/constents.dart';
 
+
+import '../../../core/widgets/buttons.dart';
+import '../../../core/widgets/custom_TextformField.dart';
+import '../../../core/widgets/custom_appbar.dart';
 import '../../../models/user/customer.dart';
+import '../../../models/user/user.dart';
+import '../../../utility/constents.dart';
 import '../../../utility/functions/validate_functions.dart';
 import '../../../utility/helpers.dart';
 import '../../../utility/size_config.dart';
+import '../profile_cubit.dart';
 
 class EditProfileScreen extends StatefulWidget {
   final Customer customer;

@@ -4,13 +4,13 @@ import 'package:bloc/bloc.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:restaurant_management/features_admin/admin_menu/add_menu_item/widgets/addon_widget.dart';
-import 'package:restaurant_management/services/FirebaseServices/fireStore_service.dart';
-import 'package:restaurant_management/utility/helpers.dart';
 import 'package:uuid/uuid.dart';
 
 import '../../../models/addon.dart';
 import '../../../models/item.dart';
+import '../../../services/FirebaseServices/fireStore_service.dart';
+import '../../../utility/helpers.dart';
+import 'widgets/addon_widget.dart';
 
 part 'add_menu_item_state.dart';
 

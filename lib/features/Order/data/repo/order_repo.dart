@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
-import 'package:restaurant_management/models/order/orderItem.dart';
-import 'package:restaurant_management/utility/errors/failure.dart';
+
+import '../../../../models/order/orderItem.dart';
+import '../../../../utility/errors/failure.dart';
+
 
 abstract class OrderRepo {
   Future<Either<Failure,List<OrderItem>>> fetchUserOrderItems();

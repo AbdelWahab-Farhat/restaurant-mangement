@@ -1,6 +1,6 @@
 import 'package:dartz/dartz.dart';
-import 'package:restaurant_management/models/user/user.dart';
 
+import '../../../../models/user/user.dart';
 import '../../../../utility/errors/failure.dart';
 
 abstract class AuthRepo {

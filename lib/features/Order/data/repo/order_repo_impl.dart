@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:restaurant_management/features/Order/data/repo/order_repo.dart';
-import 'package:restaurant_management/models/order/orderItem.dart';
-import 'package:restaurant_management/utility/errors/failure.dart';
+
+import '../../../../models/order/orderItem.dart';
+import '../../../../utility/errors/failure.dart';
+import 'order_repo.dart';
+
 
 class OrderRepoImpl extends OrderRepo {
   final FirebaseFirestore store;

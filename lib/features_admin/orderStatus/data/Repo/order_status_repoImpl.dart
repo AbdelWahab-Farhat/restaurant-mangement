@@ -2,10 +2,9 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dartz/dartz.dart' ;
-import 'package:restaurant_management/features_admin/orderStatus/data/Repo/order_status_repo.dart';
-import 'package:restaurant_management/utility/errors/failure.dart';
-
 import '../../../../models/order/order.dart' as or;
+import '../../../../utility/errors/failure.dart';
+import 'order_status_repo.dart';
 
 class OrderStatusRepoImpl extends OrderStatusRepo{
   @override

@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
+import 'package:wid_healthy_food_restaurant/features_admin/reservationsStatus/data/repo/all_Reservations_repo_impl.dart';
 
 import '../../../../../models/order/order.dart';
 import '../../../../../models/user/customer.dart';
@@ -10,7 +11,7 @@ part 'order_status_state.dart';
 
 class OrderStatusCubit extends Cubit<OrderStatusState> {
   final OrderStatusRepo orderStatusRepo;
-  final AllReservationsRepo allReservationsRepo;
+   AllReservationsRepoImpl allReservationsRepo;
   List<Customer> customers = [];
   OrderStatusCubit(this.orderStatusRepo, this.allReservationsRepo)
       : super(OrderStatusInitial());

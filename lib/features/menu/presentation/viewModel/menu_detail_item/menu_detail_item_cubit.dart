@@ -1,7 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:meta/meta.dart';
-import 'package:restaurant_management/models/order/orderItem.dart';
 
+import '../../../../../models/order/orderItem.dart';
 import '../../../data/repo/menu_repo.dart';
 
 part 'menu_detail_item_state.dart';

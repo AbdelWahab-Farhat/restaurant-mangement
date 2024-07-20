@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/features/Reservation/presentation/views/widgets/reservation_List_view.dart';
+import 'package:wid_healthy_food_restaurant/core/widgets/custom_loading_widget.dart';
 
 import '../../../../../core/widgets/custom_appbar.dart';
 import '../../../../../core/widgets/custom_error_widget.dart';
-import '../../../../../models/user/customer.dart';
 import '../../../../../utility/constents.dart';
 import '../../viewModel/reservation_cubit/reservation_cubit.dart';
+import 'reservation_List_view.dart';
 
 
 class ReservationBody extends StatefulWidget {
@@ -42,11 +42,7 @@ class _ReservationBodyState extends State<ReservationBody> {
             } else if (state is ReservationFailure) {
               return CustomErrorWidget(errMessage: state.errMessage);
             } else {
-              return const Center(
-                child: CircularProgressIndicator(
-                  color: kDarkPrimaryColor,
-                ),
-              );
+              return const CustomLoadingWidget();
             }
           },
         ),

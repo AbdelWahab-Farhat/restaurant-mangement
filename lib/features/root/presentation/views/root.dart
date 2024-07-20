@@ -1,13 +1,12 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:restaurant_management/Features/Reservation/presentation/viewModel/reservation_cubit/reservation_cubit.dart';
-import 'package:restaurant_management/features/root/presentation/views/widgets/custom_nav_item.dart';
+
 import '../../../Order/order_view.dart';
 import '../../../Profile/profile_screen.dart';
 import '../../../Reservation/presentation/views/reservation_view.dart';
 import '../../../menu/presentation/views/menu_view.dart';
+import 'widgets/custom_nav_item.dart';
 
 class Root extends StatefulWidget {
   const Root({super.key});

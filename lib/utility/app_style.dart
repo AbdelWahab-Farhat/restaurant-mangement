@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/utility/constents.dart';
+
+import 'constents.dart';
 
 class  AppStyle {
   static TextStyle buttonTextStyle(){

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/features_admin/ReservationsStatus/presentation/views/widgets/reservationt_tile.dart';
 
 import '../../../../../models/user/customer.dart';
+import 'reservationt_tile.dart';
 
 class CustomerCard extends StatelessWidget {
   final Customer customer;
@@ -10,6 +10,9 @@ class CustomerCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    if (customer.reservations == null) {
+      return const SizedBox();
+    }
     return Card(
       margin: const EdgeInsets.all(8.0),
       shape: RoundedRectangleBorder(

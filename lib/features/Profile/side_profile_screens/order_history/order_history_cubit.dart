@@ -1,12 +1,12 @@
 import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart' as fire;
 import 'package:meta/meta.dart';
-import 'package:restaurant_management/models/order/order.dart' ;
-import 'package:restaurant_management/models/user/customer.dart';
-import 'package:restaurant_management/services/FirebaseServices/fireStore_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import '../../../../models/order/order.dart';
+import '../../../../models/user/customer.dart';
 import '../../../../models/user/user.dart';
+import '../../../../services/FirebaseServices/fireStore_service.dart';
 
 part 'order_history_state.dart';
 

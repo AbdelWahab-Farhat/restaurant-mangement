@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/utility/app_style.dart';
 
 import '../../../../../core/widgets/custom_error_widget.dart';
 import '../../../../../core/widgets/custom_loading_widget.dart';
 import '../../../../../models/order/order.dart';
+import '../../../../../utility/app_style.dart';
 import '../../viewModel/order_status_cubit/order_status_cubit.dart';
 
 class CustomTabBarViewBody extends StatelessWidget {

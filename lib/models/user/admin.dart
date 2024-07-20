@@ -1,6 +1,6 @@
-import 'package:restaurant_management/models/user/user.dart';
 
 import '../order/order.dart';
+import 'user.dart';
 
 class Admin extends User {
   String adminID;

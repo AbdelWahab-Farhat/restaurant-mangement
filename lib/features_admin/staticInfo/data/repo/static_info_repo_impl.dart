@@ -1,10 +1,11 @@
 
 import 'package:cloud_firestore/cloud_firestore.dart' as store;
 import 'package:dartz/dartz.dart' as dartz;
-import 'package:restaurant_management/features_admin/staticInfo/data/repo/static_info_repo.dart';
-import 'package:restaurant_management/models/employee.dart';
-import 'package:restaurant_management/models/order/order.dart';
-import 'package:restaurant_management/utility/errors/failure.dart';
+
+import '../../../../models/employee.dart';
+import '../../../../models/order/order.dart';
+import '../../../../utility/errors/failure.dart';
+import 'static_info_repo.dart';
 
 class StaticInfoRepoImpl extends StaticInfoRepo {
   @override

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:restaurant_management/utility/size_config.dart';
 
+import '../../../../utility/size_config.dart';
 import '../../../root/presentation/views/root.dart';
 
 class LoadingPaymentScreen extends StatelessWidget {

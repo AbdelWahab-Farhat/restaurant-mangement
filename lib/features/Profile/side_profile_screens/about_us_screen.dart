@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:restaurant_management/core/widgets/custom_appbar.dart';
-import 'package:restaurant_management/core/widgets/custom_cached_Image.dart';
-import 'package:restaurant_management/utility/constents.dart';
-import 'package:restaurant_management/utility/size_config.dart';
+
+import '../../../core/widgets/custom_appbar.dart';
+import '../../../core/widgets/custom_cached_Image.dart';
+import '../../../utility/constents.dart';
+import '../../../utility/size_config.dart';
+
 
 class AboutUsScreen extends StatelessWidget {
   const AboutUsScreen({super.key});

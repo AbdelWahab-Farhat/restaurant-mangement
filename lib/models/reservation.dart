@@ -1,5 +1,6 @@
 import 'package:day_night_time_picker/lib/state/time.dart';
-import 'package:restaurant_management/models/order/order.dart'; // Import the correct Time class
+
+import 'order/order.dart';
 
 class Reservation {
   String reservationID;

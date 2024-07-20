@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/features_admin/employee/data/repo/employee_repo_impl.dart';
-import 'package:restaurant_management/features_admin/employee/presentation/viewModel/add_employee/add_employee_cubit.dart';
-import 'package:restaurant_management/features_admin/employee/presentation/viewModel/employee_Date_picker_cubit/employee_date_picker_cubit.dart';
-import 'package:restaurant_management/features_admin/employee/presentation/viewModel/employee_image_picker_cubit/employee_image_picker_cubit.dart';
-import 'package:restaurant_management/features_admin/employee/presentation/viewModel/employee_status_cubit/employee_status_cubit.dart';
-import 'package:restaurant_management/features_admin/employee/presentation/views/widgets/add_employee_view_body.dart';
+
+import '../../data/repo/employee_repo_impl.dart';
+import '../viewModel/add_employee/add_employee_cubit.dart';
+import '../viewModel/employee_Date_picker_cubit/employee_date_picker_cubit.dart';
+import '../viewModel/employee_image_picker_cubit/employee_image_picker_cubit.dart';
+import '../viewModel/employee_status_cubit/employee_status_cubit.dart';
+import 'widgets/add_employee_view_body.dart';
+
 
 
 class AddEmployeeView extends StatelessWidget {

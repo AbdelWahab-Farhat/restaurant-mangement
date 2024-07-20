@@ -1,9 +1,7 @@
-import 'package:flutter/material.dart'
-
-
-;
+import 'package:flutter/material.dart';
 import 'package:line_awesome_flutter/line_awesome_flutter.dart';
-import 'package:restaurant_management/utility/constents.dart';
+
+import '../../../utility/constents.dart';
 class ProfileMenuWidget extends StatelessWidget {
   const ProfileMenuWidget({
     super.key,

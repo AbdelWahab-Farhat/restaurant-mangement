@@ -2,10 +2,8 @@ import 'package:bloc/bloc.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
-import 'package:restaurant_management/models/user/customer.dart';
 
-import '../../../../../models/reservation.dart';
-import '../../../data/repo/reservation_repo.dart';
+import '../../../../../models/user/customer.dart';
 import '../../../data/repo/reservation_repo_impl.dart';
 
 part 'reservation_state.dart';

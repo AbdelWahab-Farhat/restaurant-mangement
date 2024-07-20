@@ -1,14 +1,15 @@
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/core/widgets/custom_appbar.dart';
-import 'package:restaurant_management/features_admin/employee/presentation/views/widgets/dep_drop_down_menu.dart';
-import 'package:restaurant_management/features_admin/employee/presentation/views/widgets/gender_drop_down_menu.dart';
 
+
+import '../../../../../core/widgets/custom_appbar.dart';
 import 'add_employee_button.dart';
+import 'dep_drop_down_menu.dart';
 import 'employee_custom_text_fields.dart';
 import 'employee_date_picker.dart';
 import 'employee_image_box.dart';
+import 'gender_drop_down_menu.dart';
 
 class AddEmployeeViewBody extends StatefulWidget {
   const AddEmployeeViewBody({super.key});

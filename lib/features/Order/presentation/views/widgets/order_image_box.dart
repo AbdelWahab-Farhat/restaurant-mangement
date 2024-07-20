@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../../core/widgets/custom_cached_Image.dart';
 import '../../../../../models/order/orderItem.dart';
-import '../../../../../utility/helpers.dart';
 import '../../../../../utility/size_config.dart';
-import '../../../../menu/presentation/views/menu_item_detail_view.dart';
 
 class OrderImageBox extends StatelessWidget {
   const OrderImageBox({

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/features/auth/presentation/views/widgets/title_section.dart';
-import 'package:restaurant_management/features/auth/presentation/views/widgets/toggle_auth_view.dart';
 import '../../../../../utility/helpers.dart';
 import '../../../../../utility/size_config.dart';
 import '../signup_view.dart';
 import 'login_section.dart';
+import 'title_section.dart';
+import 'toggle_auth_view.dart';
 
 
 class LoginBody extends StatelessWidget {

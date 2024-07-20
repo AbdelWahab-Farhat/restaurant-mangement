@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/core/widgets/custom_error_widget.dart';
-import 'package:restaurant_management/core/widgets/custom_loading_widget.dart';
-import 'package:restaurant_management/features_admin/staticInfo/prestation/viewModel/static_info_cubit.dart';
 
+import '../../../../../core/widgets/custom_error_widget.dart';
+import '../../../../../core/widgets/custom_loading_widget.dart';
+import '../../viewModel/static_info_cubit.dart';
 import 'info_box.dart';
 
 class StaticInfoViewBody extends StatefulWidget {

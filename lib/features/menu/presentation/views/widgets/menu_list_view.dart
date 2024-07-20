@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/core/widgets/custom_error_widget.dart';
-import 'package:restaurant_management/core/widgets/custom_loading_widget.dart';
 
+
+import '../../../../../core/widgets/custom_error_widget.dart';
+import '../../../../../core/widgets/custom_loading_widget.dart';
 import '../../viewModel/menu_cubit/menu_cubit.dart';
 import 'menu_item_list_view.dart';
 

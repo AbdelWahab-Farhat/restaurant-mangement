@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_credit_card/flutter_credit_card.dart';
-import 'package:restaurant_management/core/widgets/buttons.dart';
-import 'package:restaurant_management/core/widgets/custom_appbar.dart';
-import 'package:restaurant_management/utility/size_config.dart';
 
+
+import '../../../../core/widgets/buttons.dart';
+import '../../../../core/widgets/custom_appbar.dart';
+import '../../../../utility/size_config.dart';
 import '../../../Reservation/presentation/views/mk_reservation_view.dart';
 
 

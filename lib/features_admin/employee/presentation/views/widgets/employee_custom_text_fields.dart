@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:restaurant_management/features_admin/employee/presentation/views/widgets/employee_custom_text.dart';
 import '../../../../../utility/functions/validate_functions.dart';
 import '../../viewModel/employee_status_cubit/employee_status_cubit.dart';
+import 'employee_custom_text.dart';
 
 class EmployeeTextFields extends StatelessWidget {
   const EmployeeTextFields({

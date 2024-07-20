@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/utility/app_style.dart';
+
+import '../../utility/app_style.dart';
 
 
 class CustomErrorWidget extends StatelessWidget {

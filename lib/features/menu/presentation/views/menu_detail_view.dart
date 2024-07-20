@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:restaurant_management/features/menu/presentation/views/widgets/menu_detail_body.dart';
 
 import '../../../../models/item.dart';
+import 'widgets/menu_detail_body.dart';
 
 
 class MenuDetailView extends StatelessWidget {
