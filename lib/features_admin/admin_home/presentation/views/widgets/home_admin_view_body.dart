@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-
+import 'package:wid_healthy_food_restaurant/Features/auth/presentation/views/login_view.dart';
+import 'package:wid_healthy_food_restaurant/utility/helpers.dart';
 
 import '../../../../../utility/size_config.dart';
 import '../../../../admin_menu/add_menu_item/add_menu_item_screen.dart';
@@ -16,21 +17,29 @@ class HomeAdminViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: AppBar(
         title: const Text('Admin Home'),
         actions: [
-          IconButton(onPressed: () => FirebaseAuth.instance.signOut(), icon:const Padding(
-            padding: EdgeInsets.all(8.0),
-            child: Icon(Icons.logout,size: 25,),
-          ) )
+          IconButton(
+              onPressed: () {
+                FirebaseAuth.instance.signOut().whenComplete(
+                  () => pushReplacement(context, const LoginView()),);
+              },
+              icon: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: Icon(
+                  Icons.logout,
+                  size: 25,
+                ),
+              ))
         ],
         centerTitle: true,
       ),
       body: Container(
         margin: EdgeInsets.only(
             left: 20, right: 20, top: MediaQuery.sizeOf(context).height / 15),
-        child:  const SingleChildScrollView(
+        child: const SingleChildScrollView(
           child: Column(
             children: [
               Padding(
@@ -45,14 +54,14 @@ class HomeAdminViewBody extends StatelessWidget {
                 child: HomeAdminBox(
                     image: 'lib/assets/images/salad2.png',
                     viewName: 'Remove Menu Item',
-                    view:  RemoveMenuItemScreen()),
+                    view: RemoveMenuItemScreen()),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),
                 child: HomeAdminBox(
                     image: 'lib/assets/images/salad4.png',
                     viewName: 'Add Employee',
-                    view:  AddEmployeeView()),
+                    view: AddEmployeeView()),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),
@@ -66,14 +75,14 @@ class HomeAdminViewBody extends StatelessWidget {
                 child: HomeAdminBox(
                     image: 'lib/assets/images/salad4.png',
                     viewName: 'Orders Status',
-                    view:  OrderStatusView()),
+                    view: OrderStatusView()),
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),
                 child: HomeAdminBox(
                     image: 'lib/assets/images/salad4.png',
                     viewName: 'Static Info',
-                    view:  StaticInfoView()),
+                    view: StaticInfoView()),
               ),
             ],
           ),

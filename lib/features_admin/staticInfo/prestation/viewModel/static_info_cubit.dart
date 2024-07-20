@@ -49,7 +49,6 @@ class StaticInfoCubit extends Cubit<StaticInfoState> {
     }
     return income;
   }
-
   int numberOfDailyOrders(List<Order> orders) {
     int dailyOrders = 0;
     final today = DateTime.now().toLocal();

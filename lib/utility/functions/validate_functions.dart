@@ -1,3 +1,4 @@
+
 String? validateName(String? value) {
   String pattern = r'(^[a-zA-Z ]*$)';
   RegExp regExp = RegExp(pattern);
@@ -8,6 +9,7 @@ String? validateName(String? value) {
   }
   return null;
 }
+
 String? validateUserName(String? value) {
   if (value?.isEmpty ?? true) {
     return "Username is required";
@@ -16,6 +18,7 @@ String? validateUserName(String? value) {
   }
   return null;
 }
+
 String? validateMobile(String? value) {
   String pattern = r'(^\+?[0-9]*$)';
   RegExp regExp = RegExp(pattern);
@@ -42,6 +45,7 @@ String? validateConfirmPassword(String? password, String? confirmPassword) {
     return null;
   }
 }
+
 String? validateEmail(String? value) {
   String pattern =
       r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
@@ -52,6 +56,7 @@ String? validateEmail(String? value) {
     return null;
   }
 }
+
 String? validateSalary(String? value) {
   if (value == null || value.isEmpty) {
     return 'Please enter a salary';
@@ -63,6 +68,7 @@ String? validateSalary(String? value) {
   }
   return null;
 }
+
   String? validateWorkingHours(String? value) {
     if (value == null || value.isEmpty) {
       return 'Please enter working hours';

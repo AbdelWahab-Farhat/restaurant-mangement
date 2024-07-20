@@ -35,6 +35,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // providers for state (from state to other)
     return MultiBlocProvider(
       providers: [
         BlocProvider<RemoveMenuItemCubit>(
@@ -80,7 +81,9 @@ class App extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // init Size Config  (give us screen width and height)
     SizeConfig().initSizeConfig(context);
+    // providers for state (from state to other)
     return MultiBlocProvider(
       providers: [
         BlocProvider(
@@ -92,29 +95,40 @@ class App extends StatelessWidget {
       ],
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
+        // check if user is login or not and keep listen to changes if user logoff or login
+        // depend on user state at will lead you to different screen
         home: StreamBuilder<auth.User?>(
           stream: auth.FirebaseAuth.instance.authStateChanges(),
           builder: (context, snapshot) {
+            // when data is loading show custom loading view(page)
             if (snapshot.connectionState == ConnectionState.waiting) {
               return const CustomLoadingWidget();
+              // when the stream (has data) => user.
             } else if (snapshot.hasData) {
+              // future builder for check the user role if admin or user
               return FutureBuilder<Role>(
+                // sending user id to check user role to check user role
                 future: FirebaseService().checkUserRole(snapshot.data!.uid),
                 builder: (context, roleSnapshot) {
+                  // wait data
                   if (roleSnapshot.connectionState == ConnectionState.waiting) {
                     return const Scaffold(body: CustomLoadingWidget());
                   } else if (roleSnapshot.hasData) {
                     if (roleSnapshot.data == Role.admin) {
+                      // if role is admin go to admin view(page)
                       return const HomeAdminView();
                     }
                     else {
+                      // if role is customer (go to customer home page)
                       return const Root();
                     }
                   } else {
+                    // if user not login and no data  show loginView
                     return const LoginView();
                   }
                 },
               );
+              // if user not login and no data  show loginView
             } else {
               return const LoginView();
             }

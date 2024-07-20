@@ -24,7 +24,7 @@ class SettingScreen extends StatelessWidget {
         children: [
           ProfileMenuWidget(title: 'Logout', icon: Icons.logout_outlined, onPress: () {
             showAlertDialog(context, 'Attempt to logout', 'Are you Sure you want to Logout ${customer.userName} ?', ()  {
-               FirebaseAuth.instance.signOut().whenComplete(() => pushAndRemoveUntil(context, LoginView(),false),);
+               FirebaseAuth.instance.signOut().whenComplete(() => pushAndRemoveUntil(context, const LoginView(),false),);
             },null);
           },),
           ProfileMenuWidget(title: 'About Us', icon: Icons.logout_outlined, onPress:()=>Navigator.push(context, MaterialPageRoute(builder: (context) => const AboutUsScreen(),)),),

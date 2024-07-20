@@ -21,7 +21,6 @@ class AuthRepoImpl extends AuthRepo {
           email: email, password: password);
       final user = userCredential.user;
       if (user != null && user.emailVerified) {
-        // TODO: CHANGE IT LATER
         final documentSnapshot =
             await store.collection('users').doc(user.uid).get();
         us.User userRes = us.User.fromJson(documentSnapshot.data()!);

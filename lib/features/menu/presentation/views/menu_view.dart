@@ -21,7 +21,7 @@ class MenuView extends StatelessWidget {
               ),
         ),
       ],
-      child: MenuBody(),
+      child: const MenuBody(),
     );
   }
 }

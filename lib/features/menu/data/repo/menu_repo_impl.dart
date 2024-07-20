@@ -13,7 +13,7 @@ class MenuRepoImpl extends MenuRepo{
   MenuRepoImpl({required this.store});
 
   @override
-  Future<Either<Failure, List<Menu>>> fetchMenus() async{
+  Future<Either<Failure, List<Menu>>> fetchMenus() async {
       try {
         final querySnapshot = await store.collection('menus').get();
         List<Menu> menus = querySnapshot.docs.map((doc) {
